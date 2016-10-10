@@ -14,8 +14,8 @@ cd nanobox-django
 # build a python runtime
 nanobox build
 
-# deploy the python runtime into a dev environment
-nanobox dev deploy
+# start the dev environment
+nanobox dev start
 
 # add a convenient way to access your app from the browser
 nanobox dev dns add django.nanobox.dev
