@@ -11,9 +11,6 @@ git clone https://github.com/nanobox-quickstarts/nanobox-django.git
 # cd into the django app
 cd nanobox-django
 
-# build a python runtime
-nanobox build
-
 # start the dev environment
 nanobox dev start
 
