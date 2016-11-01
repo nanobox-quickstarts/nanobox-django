@@ -1,2 +1,29 @@
+# build configuration and hooks
 code.build:
+  # build a python runtime environment
   engine: python
+
+  # to run the app, we'll need nginx as a reverse proxy
+  extra_packages:
+    - nginx
+
+  # collect static assets during compile-all phase
+  after_compile:
+    - python manage.py collectstatic --noinput --clear
+
+# deployment configuration and hooks
+code.deploy:
+  before_deploy:
+    web.main:
+      - python manage.py migrate
+
+# specify a main web component
+web.main:
+  start: 
+    nginx: nginx -c /app/etc/nginx.conf
+    django: gunicorn -c /app/etc/gunicorn.py myapp.wsgi
+
+# for this example we're going to add a postgres database
+data.db:
+  image: nanobox/postgresql
+  
