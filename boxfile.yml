@@ -1,29 +1,28 @@
-# build configuration and hooks
-code.build:
-  # build a python runtime environment
-  engine: python
+run.config:
+  # engine: python
+  image: nanobox/build:beta
+  engine: python#feature/workflow-refactor
 
-  # to run the app, we'll need nginx as a reverse proxy
+  # add nginx package
   extra_packages:
     - nginx
 
-  # collect static assets during compile-all phase
-  after_compile:
+#
+deploy.config:
+  # collect static assets during deploy
+  extra_steps:
     - python manage.py collectstatic --noinput --clear
 
-# deployment configuration and hooks
-code.deploy:
-  before_deploy:
-    web.main:
-      - python manage.py migrate
+# add a postgres database
+data.db:
+  image: nanobox/postgresql
 
-# specify a main web component
+# add a web component and give it a "start" command
 web.main:
-  start: 
+  start:
     nginx: nginx -c /app/etc/nginx.conf
     django: gunicorn -c /app/etc/gunicorn.py myapp.wsgi
 
-# for this example we're going to add a postgres database
-data.db:
-  image: nanobox/postgresql
-  
+# add a worker component and give it a "start" command
+# worker.main:
+#   start: python worker.py
