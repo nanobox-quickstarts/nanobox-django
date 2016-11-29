@@ -1,6 +1,13 @@
 ![Django from scratch](https://guides.nanobox.io/assets/quickstart-icons/django.png)
 
-#### Clone the repo
+# Django from scratch
+
+Run a Django app locally, install nothing besides nanobox. 
+
+<a href="https://nanobox.io/download"><img src="https://guides.nanobox.io/assets/quickstart-icons/download.png" /></a>
+
+
+## Clone the repo
 
 ```bash
 # clone the code
@@ -10,14 +17,14 @@ git clone https://github.com/nanobox-quickstarts/nanobox-django.git
 cd nanobox-django
 ```
 
-#### Run the app
+## Run the app
 
 ```bash
 # Run django as you would normally, with Nanobox
 nanobox run python manage.py runserver 0.0.0.0
 ```
 
-#### Check it out
+## Check it out
 
 ```bash
 # Add a convenient way to access your app from the browser
@@ -26,7 +33,7 @@ nanobox dns add local django.dev
 
 Visit your app at <a href="http://django.dev:5000" target="\_blank">django.dev:5000</a>
 
-#### Explore
+## Explore
 
 With Nanobox, you don't have to have anything installed on your machine to run your app:
 
@@ -44,5 +51,7 @@ pip list
 ls
 ```
 
-#### Now What?
+## Now What?
 For more details about running django apps with nanobox visit [guides.nanobox.io/python/django/](https://guides.nanobox.io/python/django/)
+
+<a href="https://nanobox.io"><img src="https://guides.nanobox.io/assets/quickstart-icons/footer.png" /></a>
