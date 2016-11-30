@@ -5,22 +5,22 @@ run.config:
   extra_packages:
     - nginx
 
-#
 deploy.config:
   # collect static assets during deploy
   extra_steps:
     - python manage.py collectstatic --noinput --clear
 
+  #
+  before_live:
+    web.main:
+      - python manage.py migrate --fake-initial
+
 # add a postgres database
 data.db:
   image: nanobox/postgresql
 
-# add a web component and give it a "start" command
+#
 web.main:
   start:
     nginx: nginx -c /app/etc/nginx.conf
-    django: gunicorn -c /app/etc/gunicorn.py myapp.wsgi
-
-# add a worker component and give it a "start" command
-# worker.main:
-#   start: python worker.py
+    django: gunicorn -c /app/etc/gunicorn.py app.wsgi
