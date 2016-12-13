@@ -21,7 +21,7 @@ cd nanobox-django
 
 ```bash
 # Run django as you would normally, with Nanobox
-nanobox run python manage.py runserver 0.0.0.0
+nanobox run python manage.py runserver 0.0.0.0:8000
 ```
 
 ## Check it out
