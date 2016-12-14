@@ -31,7 +31,7 @@ nanobox run python manage.py runserver 0.0.0.0:8000
 nanobox dns add local django.dev
 ```
 
-Visit your app at <a href="http://django.dev:5000" target="\_blank">django.dev:5000</a>
+Visit your app at <a href="http://django.dev:8000" target="\_blank">django.dev:8000</a>
 
 ## Explore
 
