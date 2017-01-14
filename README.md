@@ -20,16 +20,14 @@ cd nanobox-django
 ## Run the app
 
 ```bash
+# Add a convenient way to access your app from the browser
+nanobox dns add local django.dev
+
 # Run django as you would normally, with Nanobox
 nanobox run python manage.py runserver 0.0.0.0:8000
 ```
 
 ## Check it out
-
-```bash
-# Add a convenient way to access your app from the browser
-nanobox dns add local django.dev
-```
 
 Visit your app at <a href="http://django.dev:8000" target="\_blank">django.dev:8000</a>
 
